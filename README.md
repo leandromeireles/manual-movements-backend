@@ -11,7 +11,7 @@
 1. Clone o repositório e entre na pasta `backend`:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repo-backend.git
+   git clone https://github.com/leandromeireles/manual-movements-backend.git
    cd seu-repo-backend
    ```
 
