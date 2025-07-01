@@ -47,7 +47,7 @@ public class MovimentoManualServiceImpl implements MovimentoManualService {
                 .findMaxNumeroLancamentoByMesAndAno(dto.getMes(), dto.getAno())
                 .orElse(0);
 
-        BigDecimal valorComEscala = dto.getValor().setScale(3, RoundingMode.UNNECESSARY);
+        BigDecimal valorComEscala = dto.getValor().setScale(2, RoundingMode.HALF_UP);
         MovimentoManual movimento = MovimentoManual.builder()
                 .ano(dto.getAno())
                 .mes(dto.getMes())

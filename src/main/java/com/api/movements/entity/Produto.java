@@ -1,7 +1,10 @@
 package com.api.movements.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "PRODUTO")
@@ -19,4 +22,8 @@ public class Produto {
 
     @Column(name = "STA_STATUS")
     private String status;
+
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<ProdutoCosif> cosifs;
 }

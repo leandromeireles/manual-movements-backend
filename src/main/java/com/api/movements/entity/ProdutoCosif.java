@@ -1,5 +1,6 @@
 package com.api.movements.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +17,7 @@ public class ProdutoCosif {
 
     @ManyToOne
     @JoinColumn(name = "COD_PRODUTO")
+    @JsonBackReference
     private Produto produto;
 
     @Column(name = "COD_CLASSIFICACAO")

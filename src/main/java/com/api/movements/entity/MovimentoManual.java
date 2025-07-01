@@ -46,6 +46,7 @@ public class MovimentoManual {
     @Column(name = "COD_USUARIO", nullable = false)
     private String usuario;
 
-    @Column(name = "VAL_VALOR", nullable = false, precision = 10, scale = 3)
+    @Column(name = "VAL_VALOR", nullable = false, precision = 10, scale = 2)
     private BigDecimal valor;
+
 }

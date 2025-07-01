@@ -1,7 +1,6 @@
 package com.api.movements.controller;
 
-import com.api.movements.entity.Produto;
-import com.api.movements.entity.ProdutoCosif;
+import com.api.movements.dto.ProdutoCosifDTO;
 import com.api.movements.service.ProdutoCosifService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,20 +27,9 @@ class CosifControllerTest {
 
     @Test
     void deveListarTodosOsProdutoCosif() throws Exception {
-        Produto produto = Produto.builder()
-                .codProduto("PRD1")
-                .descricao("Produto Teste")
-                .status("A")
-                .build();
+        ProdutoCosifDTO cosifDto = new ProdutoCosifDTO("COSIF1", "PRD1", "001", "A");
 
-        ProdutoCosif cosif = ProdutoCosif.builder()
-                .codCosif("COSIF1")
-                .produto(produto)
-                .classificacao("001")
-                .status("A")
-                .build();
-
-        when(cosifService.listarTodos()).thenReturn(List.of(cosif));
+        when(cosifService.listarTodos()).thenReturn(List.of(cosifDto));
 
         mockMvc.perform(get("/api/cosifs")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -51,3 +39,4 @@ class CosifControllerTest {
                 .andExpect(jsonPath("$[0].status").value("A"));
     }
 }
+
